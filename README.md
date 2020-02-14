@@ -99,28 +99,6 @@ class _IndicadoresState extends State<Indicadores> {
                   mobileWidthContainer: 200,
                   webWidthContainer: 400
               ),
-
-              Text(
-                itensMenu[idTela]["titulo"],
-              ),
-              Text(
-                MediaQuery.of(context).size.width.toString(),
-              ),
-              GestureDetector(
-                onTap: (){
-                  setState(() {
-                    sizeWidth = sizeWidth + 100;
-                  });
-                },
-                child: AnimatedContainer(
-                    duration: Duration(milliseconds: 500),
-                    width: sizeWidth,
-                    height: 45,
-                    child: Container(
-                      color: Colors.orange,
-                    ),
-                )
-              )
             ],
           ),
       ),
