@@ -5,27 +5,20 @@ List getSizeContainer(double widthScreen, double marginBetween, double mobileSiz
   if( widthScreen > 770){
     widthScreen = widthScreen * 0.95;
     for(int i = qtdContainers; i > 0 ; i--){
-      print(i);
       if(widthScreen >= ((webSize * i) + (marginBetween * (i - 1)))){
 
         double restSize = (webSize * i) + (marginBetween * (i - 1));
 
         if (restSize < widthScreen ){
           if(qtdContainers == i){
-            print("teste");
             webSize = (widthScreen - (marginBetween * (i + 1))) / i;
           }else{
             if(webSize * (i + 1) < widthScreen * 1.1){
-              print("primeiro if");
               i = i + 1;
               webSize = (widthScreen * 0.94 - (marginBetween * i + 1)) / i;
 
-              print(widthScreen);
-              print(webSize * i + ( marginBetween * (i - 1) ));
             }else{
               widthScreen = widthScreen * 0.95;
-              print("segundo if");
-              print(i);
               webSize = ((widthScreen - ((marginBetween * i))) / i);
             }
 

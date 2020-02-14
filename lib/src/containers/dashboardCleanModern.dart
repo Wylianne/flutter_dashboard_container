@@ -36,8 +36,6 @@ class _DashboardContainerCleanModernState extends State<DashboardContainerCleanM
     conteudo.clear();
     conteudoLinha.clear();
 
-    print(sizes);
-
     for(int i = 0; i < sizes[0]["qtdLinha"]; i++){
       int maxJ = ((i  + 1) * sizes[0]["qtdContainersLinha"]) < widget.itens.length
           ? ((i  + 1) * sizes[0]["qtdContainersLinha"])
@@ -140,7 +138,6 @@ class _DashboardContainerCleanModernState extends State<DashboardContainerCleanM
           temp.sublist(initJ, maxJ)
       );
 
-      print(sizes[0]["qtdContainersLinha"]);
       conteudoLinha.add(
           Row(
             children: conteudo[i],
