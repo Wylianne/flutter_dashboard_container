@@ -10,11 +10,12 @@ List<Widget> conteudoLinha = [];
 
 class DashboardContainerClean extends StatefulWidget {
   final List<ItemDashboard> itens;
+  final double sizeScreen;
   final double marginBetween;
   final double mobileWidthContainer;
   final double webWidthContainer;
 
-  DashboardContainerClean(this.itens, this.marginBetween, this.mobileWidthContainer, this.webWidthContainer);
+  DashboardContainerClean(this.itens, this.sizeScreen, this.marginBetween, this.mobileWidthContainer, this.webWidthContainer);
 
   @override
   _DashboardContainerCleanState createState() => _DashboardContainerCleanState();
@@ -30,7 +31,7 @@ class _DashboardContainerCleanState extends State<DashboardContainerClean> {
   }
 
   Widget getContainers(){
-    List sizes = getSizeContainer(MediaQuery.of(context).size.width, widget.marginBetween, widget.mobileWidthContainer, widget.webWidthContainer, widget.itens.length);
+    List sizes = getSizeContainer(widget.sizeScreen, widget.marginBetween, widget.mobileWidthContainer, widget.webWidthContainer, widget.itens.length);
 
     temp.clear();
     conteudo.clear();
@@ -42,6 +43,7 @@ class _DashboardContainerCleanState extends State<DashboardContainerClean> {
             : widget.itens.length;
 
         int initJ = ((i*sizes[0]["qtdContainersLinha"]));
+
         for(int j = initJ; j < maxJ; j++){
             temp.add(
               Container(
@@ -108,11 +110,24 @@ class _DashboardContainerCleanState extends State<DashboardContainerClean> {
       );
     }
 
+
+    for (int i = 0; i < sizes[0]["qtdContainersLinha"]; i++){
+        print("coluna");
+        print(i);
+        print('linha');
+        for(int j = i; j < temp.length; j = j + sizes[0]["qtdLinha"]){
+            print(j);
+        }
+    }
+
+
     return Container(
       child: Column(
         children: conteudoLinha,
       ),
     );
+
+
   }
 }
 

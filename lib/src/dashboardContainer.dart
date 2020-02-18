@@ -10,6 +10,7 @@ import 'package:flutter_dashboard_container/src/containers/dashboardModern.dart'
 class DashboardContainer extends StatefulWidget {
 
   final List<ItemDashboard> itens;
+  final double sizeScreen;
   final TipoContainer tipoContainer;
   final double marginBetween;
   final double mobileWidthContainer;
@@ -18,6 +19,7 @@ class DashboardContainer extends StatefulWidget {
   DashboardContainer(
       {
         @required this.itens,
+        @required this.sizeScreen,
         @required this.tipoContainer,
         @required this.marginBetween,
         @required this.mobileWidthContainer,
@@ -30,27 +32,31 @@ class DashboardContainer extends StatefulWidget {
 }
 
 class _DashboardContainerState extends State<DashboardContainer> {
+
   @override
   Widget build(BuildContext context) {
+
+    print(widget.sizeScreen);
+
     switch(widget.tipoContainer) {
       case TipoContainer.divided: {
-        return DashboardContainerDivided(widget.itens, widget.marginBetween, widget.mobileWidthContainer, widget.webWidthContainer);
+        return DashboardContainerDivided(widget.itens, widget.sizeScreen, widget.marginBetween, widget.mobileWidthContainer, widget.webWidthContainer);
       }break;
 
       case TipoContainer.modern: {
-        return DashboardContainerModern(widget.itens, widget.marginBetween, widget.mobileWidthContainer, widget.webWidthContainer);
+        return DashboardContainerModern(widget.itens, widget.sizeScreen,  widget.marginBetween, widget.mobileWidthContainer, widget.webWidthContainer);
       }break;
 
       case TipoContainer.line: {
-        return DashboardContainerLine(widget.itens, widget.marginBetween, widget.mobileWidthContainer, widget.webWidthContainer);
+        return DashboardContainerLine(widget.itens, widget.sizeScreen,  widget.marginBetween, widget.mobileWidthContainer, widget.webWidthContainer);
       }break;
       case TipoContainer.cleanModern: {
-        return DashboardContainerCleanModern(widget.itens, widget.marginBetween, widget.mobileWidthContainer, widget.webWidthContainer);
+        return DashboardContainerCleanModern(widget.itens, widget.sizeScreen,  widget.marginBetween, widget.mobileWidthContainer, widget.webWidthContainer);
       }break;
 
       default: {
         //default clean
-        return DashboardContainerClean(widget.itens, widget.marginBetween, widget.mobileWidthContainer, widget.webWidthContainer);
+        return DashboardContainerClean(widget.itens, widget.sizeScreen, widget.marginBetween, widget.mobileWidthContainer, widget.webWidthContainer);
       }
       break;
     }

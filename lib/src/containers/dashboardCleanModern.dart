@@ -10,11 +10,12 @@ List<Widget> conteudoLinha = [];
 
 class DashboardContainerCleanModern extends StatefulWidget {
   final List<ItemDashboard> itens;
+  final double sizeScreen;
   final double marginBetween;
   final double mobileWidthContainer;
   final double webWidthContainer;
 
-  DashboardContainerCleanModern(this.itens, this.marginBetween, this.mobileWidthContainer, this.webWidthContainer);
+  DashboardContainerCleanModern(this.itens, this.sizeScreen, this.marginBetween, this.mobileWidthContainer, this.webWidthContainer);
 
   @override
   _DashboardContainerCleanModernState createState() => _DashboardContainerCleanModernState();
@@ -30,7 +31,7 @@ class _DashboardContainerCleanModernState extends State<DashboardContainerCleanM
   }
 
   Widget getContainers(){
-    List sizes = getSizeContainer(MediaQuery.of(context).size.width, widget.marginBetween, widget.mobileWidthContainer, widget.webWidthContainer, widget.itens.length);
+    List sizes = getSizeContainer(widget.sizeScreen, widget.marginBetween, widget.mobileWidthContainer, widget.webWidthContainer, widget.itens.length);
 
     temp.clear();
     conteudo.clear();

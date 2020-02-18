@@ -3,7 +3,6 @@ List getSizeContainer(double widthScreen, double marginBetween, double mobileSiz
   //Maior que 770 trata como web
   //Menor e igual a 770 trata como mobile
   if( widthScreen > 770){
-    widthScreen = widthScreen * 0.95;
     for(int i = qtdContainers; i > 0 ; i--){
       if(widthScreen >= ((webSize * i) + (marginBetween * (i - 1)))){
 
@@ -16,15 +15,11 @@ List getSizeContainer(double widthScreen, double marginBetween, double mobileSiz
             if(webSize * (i + 1) < widthScreen * 1.1){
               i = i + 1;
               webSize = (widthScreen * 0.94 - (marginBetween * i + 1)) / i;
-
             }else{
               widthScreen = widthScreen * 0.95;
               webSize = ((widthScreen - ((marginBetween * i))) / i);
             }
-
-
           }
-
         }
 
 
@@ -38,21 +33,7 @@ List getSizeContainer(double widthScreen, double marginBetween, double mobileSiz
         ];
       }
     }
-
-
-    /*if(widthScreen >= ((webSize * qtdContainers) + (marginBetween * (qtdContainers - 1)))){
-      return [
-        {
-          "tamanho": (widthScreen / qtdContainers),
-          "widthContainer": webSize,
-          "heigthContainer": webSize / 3,
-          "qtdLinha": 1
-        }
-      ];
-    }*/
   }else{
-    widthScreen = widthScreen * 0.92;
-
     for(int i = qtdContainers; i > 0 ; i--){
       if(widthScreen >= ((mobileSize * i) + (marginBetween * (i - 1)))){
 
