@@ -46,44 +46,45 @@ class _DashboardContainerCleanState extends State<DashboardContainerClean> {
 
         for(int j = initJ; j < maxJ; j++){
             temp.add(
-              Container(
-                child: Card(
-                  color: Colors.grey[200],
-                  elevation: 2,
-                  child: Container(
-                    width: sizes[0]["widthContainer"],
-                    height: sizes[0]["heigthContainer"],
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                                widget.itens[j].conteudo,
-                                style: TextStyle(
-                                    fontSize: sizes[0]["heigthContainer"] * 0.4,
-                                    fontWeight: FontWeight.bold,
-                                    color: widget.itens[j].corTexto,
-                                ),
-                            )
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                                widget.itens[j].titulo,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: sizes[0]["heigthContainer"] * 0.15,
-                                    color: widget.itens[j].corTexto,
-                                ),
-                            )
-                          ],
-                        ),
-                      ],
+              Expanded(
+                flex: 0,
+                child: Container(
+                  child: Card(
+                    elevation: 2,
+                    child: Container(
+                      height: sizes[0]["heigthContainer"],
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                  widget.itens[j].conteudo,
+                                  style: TextStyle(
+                                      fontSize: sizes[0]["heigthContainer"] * 0.35,
+                                      fontWeight: FontWeight.bold,
+                                      color: widget.itens[j].corTexto,
+                                  ),
+                              )
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                  widget.itens[j].titulo,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: sizes[0]["heigthContainer"] * 0.17,
+                                      color: widget.itens[j].corTexto,
+                                  ),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -92,37 +93,49 @@ class _DashboardContainerCleanState extends State<DashboardContainerClean> {
         }
     }
 
-    for(int i = 0; i < sizes[0]["qtdLinha"]; i++){
-      int maxJ = ((i  + 1) * sizes[0]["qtdContainersLinha"]) < widget.itens.length
-          ? ((i  + 1) * sizes[0]["qtdContainersLinha"])
-          : widget.itens.length;
 
-      int initJ = ((i*sizes[0]["qtdContainersLinha"]));
+    List<Widget> tempFinal = [];
+    List<List<int>> range = [];
+    int i = 0;
+    int j = 0;
 
-      conteudo.add(
-          temp.sublist(initJ, maxJ)
-      );
-
-      conteudoLinha.add(
-          Row(
-            children: conteudo[i],
-          )
-      );
-    }
-
-
-    for (int i = 0; i < sizes[0]["qtdContainersLinha"]; i++){
-        print("coluna");
-        print(i);
-        print('linha');
-        for(int j = i; j < temp.length; j = j + sizes[0]["qtdLinha"]){
-            print(j);
+    for (i = 0; i < sizes[0]["qtdContainersLinha"]; i++){
+        int size = tempFinal.length;
+        for(j = i;  j < temp.length; j = j + sizes[0]["qtdContainersLinha"]){
+          tempFinal.add(temp[j]);
         }
+        range.add([size, tempFinal.length - 1]);
     }
 
+    int initJ;
+    int maxJ;
+
+    conteudo.clear();
+    for(int k = 0; k < range.length; k++){
+      print("etapa: " + k.toString());
+        initJ = range[k][0];
+        maxJ = range[k][1];
+
+        conteudo.add(
+            tempFinal.sublist(initJ, maxJ + 1)
+        );
+
+        conteudoLinha.add(
+            Expanded(
+              flex: 1,
+              child: Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: conteudo[k],
+                ),
+              ),
+            ),
+        );
+    }
 
     return Container(
-      child: Column(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: conteudoLinha,
       ),
     );

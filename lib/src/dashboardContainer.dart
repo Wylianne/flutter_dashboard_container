@@ -68,13 +68,14 @@ class ItemDashboard{
   String titulo;
   String subTitulo;
   String conteudo;
+  String help;
   IconData icone;
   Color cor;
   Color corIcone;
   Color corTexto;
   Widget target;
 
-  ItemDashboard(this.titulo, this.conteudo, this.icone, {this.subTitulo = "", this.cor = Colors.blue, this.corIcone = Colors.white,  this.corTexto = Colors.black, this.target});
+  ItemDashboard(this.titulo, this.conteudo, this.icone, {this.subTitulo = "", this.help = "", this.cor = Colors.blue, this.corIcone = Colors.white,  this.corTexto = Colors.black, this.target});
 
 }
 

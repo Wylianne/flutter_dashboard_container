@@ -36,11 +36,22 @@ List getSizeContainer(double widthScreen, double marginBetween, double mobileSiz
   }else{
     for(int i = qtdContainers; i > 0 ; i--){
       if(widthScreen >= ((mobileSize * i) + (marginBetween * (i - 1)))){
-
+        print("entrou width");
         double restSize = (mobileSize * i) + (marginBetween * (i - 1));
-
+        print(restSize);
         if (restSize < widthScreen ){
-          mobileSize = (widthScreen - ((marginBetween * (i - 1)))) / i;
+          print("entrou if rest");
+          if(qtdContainers == i){
+            mobileSize = (widthScreen - (marginBetween * (i + 1))) / i;
+          }else{
+            if(mobileSize * (i + 1) < widthScreen * 1.1){
+              i = i + 1;
+              mobileSize = (widthScreen * 0.94 - (marginBetween * i + 1)) / i;
+            }else{
+              widthScreen = widthScreen * 0.95;
+              mobileSize = ((widthScreen - ((marginBetween * i))) / i);
+            }
+          }
         }
 
 
