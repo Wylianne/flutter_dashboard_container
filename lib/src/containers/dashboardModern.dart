@@ -65,72 +65,75 @@ class _DashboardContainerModernState extends State<DashboardContainerModern> {
                 child: Tooltip(
                   message: widget.itens[j].help,
                   child: Container(
-                    height: sizes[0]["heigthContainer"],
-                    width: sizes[0]["widthContainer"],
-                    child: Stack(
-                      alignment: Alignment.bottomLeft,
-                      children: <Widget>[
-                        Card(
-                          elevation: 3,
-                          child: Container(
-                            padding: const EdgeInsets.all(8.0),
-                            width: sizes[0]["widthContainer"],
-                            height: sizes[0]["heigthContainer"] * 0.8,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: <Widget>[
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: <Widget>[
-                                    Text(
-                                      widget.itens[j].titulo,
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontSize: sizes[0]["heigthContainer"] * 0.14,
-                                        color: widget.itens[j].corTexto,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: <Widget>[
-                                    Text(
-                                      widget.itens[j].conteudo,
-                                      style: TextStyle(
-                                        fontSize: sizes[0]["heigthContainer"] * 0.25,
-                                        fontWeight: FontWeight.bold,
-                                        color: widget.itens[j].corTexto,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                              bottom: sizes[0]["widthContainer"] * 0.05,
-                              left: sizes[0]["widthContainer"] * 0.05
-                          ),
-                          child: Card(
-                            color: widget.itens[j].cor,
-                            margin: EdgeInsets.all(0),
+                    padding: EdgeInsets.only(bottom: sizes[0]["heigthContainer"] * 0.1),
+                    child: Container(
+                      height: sizes[0]["heigthContainer"],
+                      width: sizes[0]["widthContainer"],
+                      child: Stack(
+                        alignment: Alignment.bottomLeft,
+                        children: <Widget>[
+                          Card(
+                            elevation: 3,
                             child: Container(
-                              width: sizes[0]["heigthContainer"],
-                              height: sizes[0]["heigthContainer"],
-                              color: widget.itens[j].cor,
-                              child: Icon(
-                                widget.itens[j].icone,
-                                size: sizes[0]["widthContainer"] * 0.15,
-                                color: widget.itens[j].corIcone,
+                              padding: const EdgeInsets.all(8.0),
+                              width: sizes[0]["widthContainer"],
+                              height: sizes[0]["heigthContainer"] * 0.8,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: <Widget>[
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: <Widget>[
+                                      Text(
+                                        widget.itens[j].titulo,
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontSize: sizes[0]["heigthContainer"] * 0.14,
+                                          color: widget.itens[j].corTexto,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: <Widget>[
+                                      Text(
+                                        widget.itens[j].conteudo,
+                                        style: TextStyle(
+                                          fontSize: sizes[0]["heigthContainer"] * 0.25,
+                                          fontWeight: FontWeight.bold,
+                                          color: widget.itens[j].corTexto,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                          Padding(
+                            padding: EdgeInsets.only(
+                                bottom: sizes[0]["widthContainer"] * 0.05,
+                                left: sizes[0]["widthContainer"] * 0.05
+                            ),
+                            child: Card(
+                              color: widget.itens[j].cor,
+                              margin: EdgeInsets.all(0),
+                              child: Container(
+                                width: sizes[0]["heigthContainer"],
+                                height: sizes[0]["heigthContainer"],
+                                color: widget.itens[j].cor,
+                                child: Icon(
+                                  widget.itens[j].icone,
+                                  size: sizes[0]["widthContainer"] * 0.15,
+                                  color: widget.itens[j].corIcone,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

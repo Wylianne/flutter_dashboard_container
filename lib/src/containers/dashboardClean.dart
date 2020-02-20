@@ -49,6 +49,7 @@ class _DashboardContainerCleanState extends State<DashboardContainerClean> {
               Expanded(
                 flex: 0,
                 child: Container(
+                  padding: EdgeInsets.only(bottom: sizes[0]["heigthContainer"] * 0.1),
                   child: Card(
                     elevation: 2,
                     child: Container(

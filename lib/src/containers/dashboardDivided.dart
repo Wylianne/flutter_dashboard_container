@@ -69,6 +69,7 @@ class _DashboardContainerDividedState extends State<DashboardContainerDivided> {
                   message: widget.itens[j].help,
                   child: Container(
                     //margin: widget.itens.length - 2 >= j ? EdgeInsets.only(right: widget.marginBetween) : EdgeInsets.only(right: 0),
+                    padding: EdgeInsets.only(bottom: sizes[0]["heigthContainer"] * 0.1),
                     child: Card(
                       elevation: 2,
                       child: Container(
