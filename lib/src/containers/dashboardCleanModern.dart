@@ -50,7 +50,7 @@ class _DashboardContainerCleanModernState extends State<DashboardContainerCleanM
               child: GestureDetector(
                 onTap: (){
                   final snackBar = SnackBar(
-                    content: Text(widget.itens[j].help),
+                    content: Text(widget.itens[j].help + "\n"+ widget.itens[j].titulo + "\n"+ widget.itens[j].conteudo),
                     backgroundColor: Colors.blue,
                     action: SnackBarAction(
                       label: 'Fechar',
@@ -64,7 +64,7 @@ class _DashboardContainerCleanModernState extends State<DashboardContainerCleanM
                   Scaffold.of(context).showSnackBar(snackBar);
                 },
                 child: Tooltip(
-                  message: widget.itens[j].help,
+                  message: widget.itens[j].help + "\n"+ widget.itens[j].titulo + "\n"+ widget.itens[j].conteudo,
                   child: Container(
                     padding: EdgeInsets.only(bottom: sizes[0]["heigthContainer"] * 0.1),
                     child: Card(
@@ -80,36 +80,33 @@ class _DashboardContainerCleanModernState extends State<DashboardContainerCleanM
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Container(
-                                    margin: EdgeInsets.symmetric(horizontal: 8.0),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: <Widget>[
-                                        Row(
-                                          children: <Widget>[
-                                            Text(
-                                              widget.itens[j].conteudo,
-                                              style: TextStyle(
-                                                fontSize: sizes[0]["heigthContainer"] * 0.35,
-                                                fontWeight: FontWeight.bold,
-                                                color: widget.itens[j].corIcone,
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                        Row(
-                                          children: <Widget>[
-                                            Text(
-                                              widget.itens[j].subTitulo,
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                fontSize: sizes[0]["heigthContainer"] * 0.15,
-                                                color: widget.itens[j].corTexto,
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ],
+                                    margin: EdgeInsets.symmetric(horizontal: sizes[0]["widthContainer"] * 0.02),
+                                    child: Container(
+                                      width: sizes[0]["widthContainer"] * 0.63,
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: <Widget>[
+                                          Text(
+                                            widget.itens[j].conteudo,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                              fontSize: sizes[0]["heigthContainer"] * 0.35,
+                                              fontWeight: FontWeight.bold,
+                                              color: widget.itens[j].corIcone,
+                                            ),
+                                          ),
+                                          Text(
+                                            widget.itens[j].subTitulo,
+                                            textAlign: TextAlign.center,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                              fontSize: sizes[0]["heigthContainer"] * 0.15,
+                                              color: widget.itens[j].corTexto,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   Container(

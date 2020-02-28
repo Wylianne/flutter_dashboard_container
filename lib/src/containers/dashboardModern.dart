@@ -49,7 +49,7 @@ class _DashboardContainerModernState extends State<DashboardContainerModern> {
               child: GestureDetector(
                 onTap: (){
                   final snackBar = SnackBar(
-                    content: Text(widget.itens[j].help),
+                    content: Text(widget.itens[j].help + "\n"+ widget.itens[j].titulo + "\n"+ widget.itens[j].conteudo),
                     backgroundColor: Colors.blue,
                     action: SnackBarAction(
                       label: 'Fechar',
@@ -63,7 +63,7 @@ class _DashboardContainerModernState extends State<DashboardContainerModern> {
                   Scaffold.of(context).showSnackBar(snackBar);
                 },
                 child: Tooltip(
-                  message: widget.itens[j].help,
+                  message: widget.itens[j].help + "\n"+ widget.itens[j].titulo + "\n"+ widget.itens[j].conteudo,
                   child: Container(
                     padding: EdgeInsets.only(bottom: sizes[0]["heigthContainer"] * 0.1),
                     child: Container(
@@ -75,38 +75,37 @@ class _DashboardContainerModernState extends State<DashboardContainerModern> {
                           Card(
                             elevation: 3,
                             child: Container(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(sizes[0]["widthContainer"] * 0.02),
                               width: sizes[0]["widthContainer"],
                               height: sizes[0]["heigthContainer"] * 0.8,
+                              alignment: Alignment.centerRight,
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                textDirection: TextDirection.rtl,
                                 children: <Widget>[
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: <Widget>[
-                                      Text(
-                                        widget.itens[j].titulo,
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          fontSize: sizes[0]["heigthContainer"] * 0.14,
-                                          color: widget.itens[j].corTexto,
-                                        ),
-                                      )
-                                    ],
+                                  Container(
+                                    width: sizes[0]["widthContainer"] * 0.65,
+                                    alignment: Alignment.centerRight,
+                                    child: Text(
+                                      widget.itens[j].titulo,
+                                      style: TextStyle(
+                                        fontSize: sizes[0]["heigthContainer"] * 0.14,
+                                        color: widget.itens[j].corTexto,
+                                      ),
+                                    ),
                                   ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: <Widget>[
-                                      Text(
-                                        widget.itens[j].conteudo,
-                                        style: TextStyle(
-                                          fontSize: sizes[0]["heigthContainer"] * 0.25,
-                                          fontWeight: FontWeight.bold,
-                                          color: widget.itens[j].corTexto,
-                                        ),
-                                      )
-                                    ],
+                                  Container(
+                                    width: sizes[0]["widthContainer"] * 0.65,
+                                    alignment: Alignment.centerRight,
+                                    child: Text(
+                                      widget.itens[j].conteudo,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: sizes[0]["heigthContainer"] * 0.25,
+                                        fontWeight: FontWeight.bold,
+                                        color: widget.itens[j].corTexto,
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
