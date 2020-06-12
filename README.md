@@ -107,4 +107,8 @@ class _IndicadoresState extends State<Indicadores> {
   }
 }
 ```
+## Modelos
+
+![alt text](https://raw.githubusercontent.com/Wylianne/flutter_dashboard_container/master/lib/assets/Capturar.PNG "Modelo")
+
 
